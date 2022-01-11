@@ -272,9 +272,9 @@ class CBitcoinAddress : public CBase58Data
 public:
     enum
     {
-        PUBKEY_ADDRESS = 48, // Sumcash addresses start with L
+        PUBKEY_ADDRESS = 63, // Sumcash addresses start with S
         SCRIPT_ADDRESS = 5,
-        PUBKEY_ADDRESS_TEST = 111,
+        PUBKEY_ADDRESS_TEST = 125, // Testnet-Sumcash addresses start with s 
         SCRIPT_ADDRESS_TEST = 196,
     };
 
