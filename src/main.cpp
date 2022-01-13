@@ -35,7 +35,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0xfa1e86d0a3d4100a112cf98936dbbcca615c2ae458c8ec6f5d7a19a50c039cf5");
+uint256 hashGenesisBlock("0x");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Sumcash: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -2746,7 +2746,7 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0xc3;
         pchMessageStart[2] = 0xb9;
         pchMessageStart[3] = 0xd4;
-        hashGenesisBlock = uint256("0x5b1261510171820d83f1814b875d4b2abb62956cba068dbbcf1494e51988ccf1");
+        hashGenesisBlock = uint256("0x");
     }
 
     //
@@ -2779,19 +2779,19 @@ bool InitBlockIndex() {
         //   vMerkleTree: 97ddfbbae6
 
         // Genesis block
-        const char* pszTimestamp = "2022-01-09, Comedian Bob Saget Dead at 65, Found in Orlando Hotel Room - TMZ";
+        const char* pszTimestamp = "Fighting flares on outskirts of Tripoli";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 2314.81481 * COIN;
+        txNew.vout[0].nValue = 10000 * COIN;
         txNew.vout[0].scriptPubKey = CScript() << ParseHex("04e7cf35e1cdf80e8930abd12a54bbfc7f11967357798197184d93b5aceff942221d22c1c885a556ff27a13c9172fdd22f4e392a6f3f02f04149142b0220b7191f") << OP_CHECKSIG;
         CBlock block;
         block.vtx.push_back(txNew);
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1641914140;
+        block.nTime    = 1554579000;
         block.nBits    = 0x1e0ffff0;
         block.nNonce   = 2085403958;
 
@@ -2801,7 +2801,7 @@ bool InitBlockIndex() {
             block.nNonce   = 387147565;
         }
 
-        if (false && block.GetHash() != hashGenesisBlock)
+        if (true && block.GetHash() != hashGenesisBlock)
                 {
                     printf("Searching for genesis block...\n");
                     // This will figure out a valid hash and Nonce if you're
@@ -2849,7 +2849,7 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x2d527fa26d7f5b9e018adc69ddb0b964231e63e5c300b4c968b4f460980dd828"));
+        assert(block.hashMerkleRoot == uint256("0x"));
         block.print();
         assert(hash == hashGenesisBlock);
 
